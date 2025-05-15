@@ -1,5 +1,6 @@
 # Godot spatial navigation mapper
-A  godot tool plugin for automatically controlling and mapping out spatial-navigation pathing for interface elements, originally created as a part of my bachelor's thesis during spring 2025
+A  godot tool plugin for automatically controlling and mapping out spatial-navigation pathing for interface elements, originally created as a part of my bachelor's thesis during spring 2025.
+
 ![image](https://github.com/user-attachments/assets/65da3830-34fe-46b1-b5a0-0f2060df54c9)
 
 To install and use the thesis-release of the plugin, at least a Godot version 4.4 .Net installation is required to allow any support for C# code.
