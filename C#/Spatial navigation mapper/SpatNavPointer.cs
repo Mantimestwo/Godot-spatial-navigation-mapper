@@ -22,7 +22,7 @@ public partial class SpatNavPointer : NinePatchRect
     public void SetPointerParameters(int receivingDirIndex, Vector2 directionVector, float distance, Color[] colors, string[] letters)
     {
         RotationDegrees = Mathf.RadToDeg(Mathf.Atan2(directionVector.Y, directionVector.X)) - 90f;
-        Size = new(Texture.GetSize().X, distance); //*0.8f
+        Size = new(Texture.GetSize().X, distance+20.0f);
         directionIndex = receivingDirIndex;
         Modulate = colors[directionIndex];
 

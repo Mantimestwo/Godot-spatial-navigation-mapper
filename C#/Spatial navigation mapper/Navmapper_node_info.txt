@@ -1,0 +1,52 @@
+Info about the navmapper node and variables within (in order)
+
+- Alt and (key) to hide: input key for visibility toggle hotkey combination (Alt + [key])
+
+- Lock visibility toggle: Lock for whether it's possible to use visibility hotkey
+
+- Auto-update:
+	- All: Calculate automatic navigation and set visualization
+	- Visualization: Only update visualization, used for manually updating pathing via navigation reference resources
+		(Note: if new elements are added, "All" auto-update is required to generate and properly re-create navigation resources, groups and other)
+
+- Set base godot focus: (add set self to all to stop all navigation)
+	- Toggles whether the tool sets built-in Godot focus references and toggles whether built in focus is in use at all.
+		- (If needed for any other custom implementations where data is read from navigation references for custom focus tools etc)
+
+- Allow base godot next and previous:
+	- Controls whether next/previous focus references are filled with self or left empty
+	- Off by default, as I have no custom logic and dont want these to break any UI calculated by the tool
+
+- Override frame focus: Smoother visual update, but computes a mapping update every tick in _physics_process() (60hz) instead of every other tick (30hz)
+
+- Element groups: The collection of groups of elements to be mapped
+	- Elements to map: elements for a group
+	- Entry selection indexes: for controlling which index in the array gets selected, when moving from another group to the corresponding one (Right input = left entry, Up input = bottom entry)
+		- defaults to first element in group
+
+- Check resolution: Amount of "detection" points alongside the width and height of all elements for added accuracy
+	- (higher amount means more calculations, hence a count over something like 15 would probably be unnecessary)
+
+- Maximum target angle: Maximum allowed angle deviation compared to input direction
+
+- Maximum group target angle: Ditto, but for group-to-group detection
+
+- Navigation references: Custom resources for bringing all focus references to one place
+	- only manually editable in "Visualization" auto-update mode
+	- In-group navigation is fully editable
+	- Can only move to other groups in the calculated group-to-group directions, controlled by entry indexes found in the element group resources
+	- Empty sets in-built focus to self, so no navigation can occur in the direction
+
+- Distance cut-off: -1 = no limit, but you can input any maximum distance where results get discarded up till 4000 units (pixels), if more is necessary, you can go into the code and increase the limit
+
+- Visuals:
+  - Override: Saveable custom Godot resource with all settings below
+    - Can easily be set in any new Nav-mapper instance for transferring customization
+  - Overall opacity
+  - Colors for each direction:
+    - In-group
+    - Group-to-group
+  - Group container color
+  - Group container padding (size)
+  - Group label size
+  - Group container texture (Currently hard-coded margin of 6 pixels on each edge, but you can use any custom texture)
