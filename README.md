@@ -43,7 +43,7 @@ My plan is to at least clean up some of the code and potentially add some featur
 
 Some other minor additions may be added down the line, depending on solutions I come up with for any encountered need. Of course, if you have a need for some very specific addition, the code is licensed under an MIT license, so you are completely free to edit the code to make your own version of the plugin, within the rights detailed within the license document!
 
-#### Q: Why is the code basically held together with ductape and string?
+#### Q: Why is the code basically held together with duct tape and string?
 
 Because it is :)
 
